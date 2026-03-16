@@ -6,7 +6,7 @@
 #include <mutex>
 using namespace std;
 
-// // Problem: This is NOT a singleton pattern
+// Problem: This is NOT a singleton pattern
 // class SingletonProblem{
 //     public:
 //     SingletonProblem(){
