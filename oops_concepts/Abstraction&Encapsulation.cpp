@@ -14,7 +14,7 @@
 //     virtual void brake() = 0;
 //     virtual void stopEngine() = 0;
 //     virtual ~Car() {}
-// };
+// };  
 
 // class sportsCar : public Car {
 // public:
@@ -185,6 +185,10 @@ int main(){
     myCar->accelerate();
     myCar->brake();
     myCar->stopEngine();
+
+    // not possible to access private members directly
+    // myCar->currentSpeed = 500;
+    // cout << "Current speed of " << myCar->getCurrentSpeed() << " km/h" << endl;
 
 
     // myCar->currentSpeed = 500; // This line will not compile because currentSpeed is private
