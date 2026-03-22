@@ -37,25 +37,32 @@ class Cube : public Shape3D {
     double side;
 public:
     Cube(double s) : side(s) {}
+
     double area() const override {
         return 6 * side * side;
     }
+
     double volume() const override {
-        return side * side * side;
+        return side * side * side; 
     }
 };
 
 class Client {
+
     private:
     vector<Shape2D*> shapes2D;
     vector<Shape3D*> shapes3D;
+
     public:
+    
     void addShape(Shape2D* shape) {
         shapes2D.push_back(shape);
     }
+
     void addShape(Shape3D* shape) {
         shapes3D.push_back(shape);
     }
+
     void displayAreasAndVolumes() {
         for (const auto& shape : shapes2D) {
             cout << "Area: " << shape->area() << endl;
