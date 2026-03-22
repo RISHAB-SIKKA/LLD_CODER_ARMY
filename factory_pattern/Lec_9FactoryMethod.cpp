@@ -1,6 +1,5 @@
-#include<iostream>
-#include<string>
-#include<stdexcept>
+#include<bits/stdc++.h>
+
 using namespace std;
 
 class Burger{
@@ -20,7 +19,7 @@ class StandardBurger : public Burger{
     public:
     void prepare() override{
         cout << "Preparing Standard Burger" << endl;
-    }
+    }   
 };
 
 class PremiumBurger : public Burger{
@@ -30,24 +29,24 @@ class PremiumBurger : public Burger{
     }
 };
 
-class BasicWheatBurger : public Burger{
+class WheatBasicBurger : public Burger{
     public:
     void prepare() override{
-        cout << "Preparing Basic Wheat Burger" << endl;
+        cout << "Preparing Wheat Basic Burger" << endl;
     }
 };
 
-class StandardWheatBurger : public Burger{
+class WheatStandardBurger : public Burger{
     public:
     void prepare() override{
-        cout << "Preparing Standard Wheat Burger" << endl;
+        cout << "Preparing Wheat Standard Burger" << endl;
     }
 };
 
-class PremiumWheatBurger : public Burger{
+class WheatPremiumBurger : public Burger{
     public:
     void prepare() override{
-        cout << "Preparing Premium Wheat Burger" << endl;
+        cout << "Preparing Wheat Premium Burger" << endl;
     }
 };
 
@@ -57,7 +56,7 @@ class BurgerFactory{
     virtual ~BurgerFactory() = default;
 };
 
-class SinghBurgerFactory : public BurgerFactory{
+class BasicBurgerFactory : public BurgerFactory{
     public:
     Burger* createBurger(string type) override{
         if(type == "Basic"){
@@ -75,17 +74,17 @@ class SinghBurgerFactory : public BurgerFactory{
     }
 };
 
-class KingBurgerFactory : public BurgerFactory{
+class WheatBurgerFactory : public BurgerFactory{
     public:
     Burger* createBurger(string type) override{
         if(type == "Basic"){
-            return new BasicWheatBurger();
+            return new WheatBasicBurger();
         }
         else if(type == "Standard"){
-            return new StandardWheatBurger();
+            return new WheatStandardBurger();
         }
         else if(type == "Premium"){
-            return new PremiumWheatBurger();
+            return new WheatPremiumBurger();
         }
         else{
             throw invalid_argument("Invalid burger type");
@@ -93,34 +92,28 @@ class KingBurgerFactory : public BurgerFactory{
     }
 };
 
-
 int main(){
-   BurgerFactory* nonwheatBurgerFactory =  new SinghBurgerFactory();
-   BurgerFactory* wheatBurgerFactory =  new KingBurgerFactory();
+    BurgerFactory* burgerFactory = new BasicBurgerFactory();
+    BurgerFactory* wheatBurgerFactory = new WheatBurgerFactory();
 
-   Burger* nonWheatBurger = nonwheatBurgerFactory->createBurger("Premium");
-   nonWheatBurger->prepare();
+    Burger* burger = burgerFactory->createBurger("Basic");
+    burger->prepare();
+    delete burger;
 
-   nonWheatBurger = nonwheatBurgerFactory->createBurger("Standard");
-   nonWheatBurger->prepare();
+    burger = burgerFactory->createBurger("Standard");
+    burger->prepare();
+    delete burger;
+    
+    burger = wheatBurgerFactory->createBurger("Basic");
+    burger->prepare();
+    delete burger;
 
-   nonWheatBurger = nonwheatBurgerFactory->createBurger("Basic");
-   nonWheatBurger->prepare();
+    burger = wheatBurgerFactory->createBurger("Standard");
+    burger->prepare();
+    delete burger;
 
-   Burger* wheatBurger = wheatBurgerFactory->createBurger("Premium");
-   wheatBurger->prepare();
-   
-   wheatBurger = wheatBurgerFactory->createBurger("Standard");
-   wheatBurger->prepare();
-
-   wheatBurger = wheatBurgerFactory->createBurger("Basic");
-   wheatBurger->prepare();
-
-   // Clean up memory
-   delete nonWheatBurger;
-   delete wheatBurger;
-   delete nonwheatBurgerFactory;
-   delete wheatBurgerFactory;
+    delete burgerFactory;
+    delete wheatBurgerFactory;
 
     return 0;
 }
