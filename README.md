@@ -9,7 +9,7 @@
 
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
-- [Repository Layout](#repository-layout)
+- [Repository Structure](#repository-structure)
 - [Build and Run](#build-and-run)
 - [What Each Area Covers](#what-each-area-covers)
 - [Learning Goals](#learning-goals)
@@ -36,7 +36,43 @@
 
 ---
 
-## 📂 Repository Layout
+## 📂 Repository Structure
 
-<details>
-<summary><strong>Click to expand full folder structure</strong></summary>
+### 🔹 Core Areas
+
+- 📁 [OOP Concepts](./oops_concepts/)
+- 📁 [SOLID Principles](./solid_principles/)
+- 📁 [Factory Pattern](./factory_pattern/)
+- 📁 [Builder Pattern](./builder_pattern/)
+- 📁 [Prototype Pattern](./prototype_pattern/)
+- 📁 [Singleton Pattern](./singleton_pattern/)
+- 📄 [Strategy Pattern](./Lec-7_StrategyPattern.cpp)
+
+---
+
+### 🔹 SOLID Principle Breakdown
+
+- 🔸 [Single Responsibility Principle](./solid_principles/single_responsibility_principle/)
+- 🔸 [Open Closed Principle](./solid_principles/open_closed_principle/)
+- 🔸 [Liskov Substitution Principle](./solid_principles/liskov_substitution_principle/)
+- 🔸 [Interface Segregation Principle](./solid_principles/interface_segeregation_principle/)
+- 🔸 [Dependency Inversion Principle](./solid_principles/dependency_inversion_principle/)
+
+---
+
+### ⭐ Highlighted Implementations
+
+- 🔥 [Payment Service Factory Pattern](./factory_pattern/PaymentServiceFactoryPattern.cpp)
+- 🔥 [Strategy Pattern Implementation](./Lec-7_StrategyPattern.cpp)
+- 🔥 [DIP Correct Implementation](./solid_principles/dependency_inversion_principle/DIP_Correct.cpp)
+
+---
+
+## 🛠️ Build and Run
+
+Each `.cpp` file is standalone and can be compiled individually.
+
+### Compile and run:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -pedantic "path/to/File.cpp" -o app && ./app
