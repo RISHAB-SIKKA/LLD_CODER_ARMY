@@ -78,10 +78,6 @@ class Client{
         void display(){
             try{
                 p->getValue();
-            }catch(const invalid_argument& e){
-                cout << "Caught in Client: " << e.what() << endl;
-            }catch(const logic_error& e){
-                cout << "Caught in Client: " << e.what() << endl;
             }catch(const exception& e){
                 cout << "Caught in Client: " << e.what() << endl;
             }
