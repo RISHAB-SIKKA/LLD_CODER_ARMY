@@ -45,8 +45,9 @@ public:
 
     void display() {
         Animal* a = p->getAnimal();
-        // Do something with a...
+        Animal* b = p->getAnimal();
         delete a; // ✅ free the returned object
+        delete b; // ✅ free the returned object
     }
 };
 

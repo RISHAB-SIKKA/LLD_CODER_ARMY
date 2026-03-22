@@ -2,18 +2,22 @@
 #include<string>
 using namespace std;
 
-// Method ArgumentRule class definition
-// This class checks if a method argument is valid based on certain rules
-// and provides a way to validate method arguments.
-// It includes a method to check if the argument is not empty and does not exceed a certain length.
-// The class also includes a method to display the validation result.
-
 class Parent{
         public:
         virtual void print(string msg){
             cout << "Parent: " << msg << endl;
         }
 };
+
+// This is a violation of the method argument rule
+// because the child class is overriding the parent class method with a different argument type
+// which is not allowed according to the LSP.
+// class Child1 : public Parent{
+//     public:
+//     void print(int msg) override{
+//         cout << "Child: " << msg << endl;
+//     }
+// };
 
 class Child : public Parent{
     public:
